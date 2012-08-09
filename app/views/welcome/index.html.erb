@@ -1,0 +1,71 @@
+<div id="sideways">
+	<div class="scene" id="hero">
+
+	<h1>Cost of living rising in your nieghborhood?<h1>
+	<%= form_for @email_subscription do |f| %>
+	  <% if @email_subscription.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@email_subscription.errors.count, "error") %> prohibited this email_subscription from being saved:</h2>
+
+	      <ul>
+	      <% @email_subscription.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+	  <%= f.label :email %></br>
+		<%= f.text_field :email %><br>
+		<%= f.submit %>
+	<% end %>
+	</div>
+
+
+	<div class="scene" id="protection">
+
+	<h2>Pay Anywhere, Save Everywhere</h2>
+
+	</div>
+
+
+
+	<div class="scene" id="signup">
+
+		<h2>Signup</h2>
+	<%= form_for @email_subscription do |f| %>
+	  <% if @email_subscription.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@email_subscription.errors.count, "error") %> prohibited this email_subscription from being saved:</h2>
+
+	      <ul>
+	      <% @email_subscription.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+	  <%= f.label :email %></br>
+		<%= f.text_field :email %><br>
+		<%= f.submit %>
+	<% end %>
+
+	</div>
+
+
+	<div class="scene" id="big_splash">
+
+	<h2>In 2010 X households kept on average $Y in checking accounts earning less than Z% interest</h2>
+
+	</div>
+
+
+	<div class="scene" id="pitch">
+
+	<h2>We are looking for partners and customers to make this vision a reality</h2>
+
+	</div>
+
+	<%= render 'layouts/footer' %>
+</div>
