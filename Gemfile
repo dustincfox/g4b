@@ -6,7 +6,7 @@ gem 'rails', '3.2.6'
 
 gem 'heroku'
 
-gem 'sqlite3'
+gem 'pg'
 
 gem 'thin'
 
