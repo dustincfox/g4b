@@ -1,7 +1,11 @@
 <div id="sideways">
 	<div class="scene" id="hero">
 
-	<h1>Cost of living rising in your nieghborhood?<h1>
+	<h1>Cost of living rising in your nieghborhood?</h1>
+		<%= image_tag"clc.png" %>
+
+	<p>
+		We have a solution.
 	<%= form_for @email_subscription do |f| %>
 	  <% if @email_subscription.errors.any? %>
 	    <div id="error_explanation">
@@ -14,56 +18,59 @@
 	      </ul>
 	    </div>
 	  <% end %>
-
-	  <%= f.label :email %></br>
-		<%= f.text_field :email %><br>
-		<%= f.submit %>
+		<%= f.text_field :email, placeholder: "Email" %><br>
+		<%= f.submit "Signup" %>
 	<% end %>
+		</p>
 	</div>
 
 
 	<div class="scene" id="protection">
 
-	<h2>Pay Anywhere, Save Everywhere</h2>
-
-	</div>
-
-
-
-	<div class="scene" id="signup">
-
-		<h2>Signup</h2>
-	<%= form_for @email_subscription do |f| %>
-	  <% if @email_subscription.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(@email_subscription.errors.count, "error") %> prohibited this email_subscription from being saved:</h2>
-
-	      <ul>
-	      <% @email_subscription.errors.full_messages.each do |msg| %>
-	        <li><%= msg %></li>
-	      <% end %>
-	      </ul>
-	    </div>
-	  <% end %>
-
-	  <%= f.label :email %></br>
-		<%= f.text_field :email %><br>
-		<%= f.submit %>
-	<% end %>
+	<h1>Pay Anywhere, Save Everywhere</h1>
+	<p>We provide a <strong>universal payment network</strong>,<br><br> and we aggregate living costs across the US <strong>your savings</strong> travel with you.</p>
 
 	</div>
 
 
 	<div class="scene" id="big_splash">
 
-	<h2>In 2010 X households kept on average $Y in checking accounts earning less than Z% interest</h2>
+	<h1>Your one of Millions</h1>
+		<p>Since 2007 US households have increased their savings <strong>300%.</strong><br><br>
+			Over the same time, interest rates fell to <strong>record lows.</strong>
+		</p>
 
 	</div>
 
 
-	<div class="scene" id="pitch">
+	<div class="scene" id="lies">
 
-	<h2>We are looking for partners and customers to make this vision a reality</h2>
+	<h1>They're lying to you</h1>
+	<p>When they say that inflation is only 1.5%. <br> <br>
+		In reality inflation is different for everyone, and for most it is  between <strong>3-5%</strong>.</p> 
+
+	</div>
+
+	<div class="scene" id="join">
+
+		<h2>Join</h2>
+	<%= form_for @email_subscription do |f| %>
+	  <% if @email_subscription.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@email_subscription.errors.count, "error") %> prohibited this email_subscription from being saved:</h2>
+
+	      <ul>
+	      <% @email_subscription.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+	  <%= f.label :email %></br>
+		<%= f.text_field :email %><br>
+		<%= f.submit "Signup" %>
+	<% end %>
 
 	</div>
 

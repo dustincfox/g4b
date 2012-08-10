@@ -1,8 +1,12 @@
 <header>
 
 	<div id="logo">
-		CLC
+		<%= image_tag"logo.png" %>
 	</div>
-	<div id="line"></div>
-
+	<div id="counter">
+		<table>
+			<tr>
+				<td>0000<%= @subscription_counter %><span class='hand'>W</span></td>
+			</tr>
+		</table>
 </header>

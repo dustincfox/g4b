@@ -25,5 +25,9 @@ $(document).ready(function() {
 			event.preventDefault();
 		});   
 	})
-        
+
+  $(function(){
+      $("#email_subscription_email").focus();
+  });
+
 });
