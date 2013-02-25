@@ -11,7 +11,7 @@ $(document).ready(function() {
           }, 1500,'easeInOutExpo');
            */
           $('html, body').stop().animate({
-              scrollLeft: $($anchor.attr('href')).offset().left - 170
+              scrollLeft: $($anchor.attr('href')).offset().left - 90
           }, 750);
           event.preventDefault();
       });

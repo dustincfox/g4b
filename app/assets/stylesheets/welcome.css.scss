@@ -103,10 +103,9 @@ header {
 }
 
 #sideways {
-	margin-top: 70px;
-	width: 4650px;
-	overflow: hidden;
-	margin-left:80px;
+margin-top: 100px;
+width: 3790px;
+overflow: hidden;
 }
 
 .scene {
@@ -137,9 +136,9 @@ header {
 		font-size: 27px;
 	}
 	form{
-		float:right;
-		position: relative;
-		top:-100px;
+position: absolute;
+top: 380px;
+left: 670px;
 		label {
 			font-size: 15px;
 		}
