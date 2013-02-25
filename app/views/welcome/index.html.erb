@@ -2,26 +2,10 @@
 	<div class="scene" id="hero">
 
 	<h1>Cost of living rising in your neighborhood?</h1>
-		<%= image_tag"clc.png" %>
-
-	<p>
-		We have a solution.
-	<%= form_for @email_subscription do |f| %>
-	  <% if @email_subscription.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(@email_subscription.errors.count, "error") %> prohibited this email_subscription from being saved:</h2>
-
-	      <ul>
-	      <% @email_subscription.errors.full_messages.each do |msg| %>
-	        <li><%= msg %></li>
-	      <% end %>
-	      </ul>
-	    </div>
-	  <% end %>
-		<%= f.text_field :email, placeholder: "Email" %><br>
-		<%= f.submit "Signup" %>
-	<% end %>
-		</p>
+		  <%= high_chart("my_id4", @chart) do |c| %>
+        <%= raw "options.tooltip.formatter = function() {return this.point.name +'</b>: '+ this.y +' %';}"  %>
+        <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
+      <% end %>
 	</div>
 
 	<div class="scene" id="problem">
