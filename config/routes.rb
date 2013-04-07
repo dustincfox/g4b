@@ -1,6 +1,13 @@
-Clc::Application.routes.draw do
+G4b::Application.routes.draw do
   root :to => 'welcome#index'
-  get "welcome/index"
+  match '/how', :to => 'welcome#how', :as => "how"
+  match '/about', :to => 'welcome#about', :as => "about"
+
+  devise_for :users
+  resources :actions
+  resources :comments
+  resources :check_ins
+  resources :tags, only: [:create, :destroy]
   resources :email_subscriptions, only: [:new, :create, :index]
 
   # The priority is based upon order of creation:

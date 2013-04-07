@@ -6,9 +6,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: blog_development
+  database: g4b_development
   pool: 5
-  username: costoflivingcard
+  username: g4b
   password:
 
 # Warning: The database defined as "test" will be erased and
@@ -17,15 +17,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: blog_development
+  database: g4b_development
   pool: 5
-  username: costoflivingcard
+  username: g4b
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: blog_development
+  database: g4b_development
   pool: 5
-  username: costoflivingcard
+  username: g4b
   password:
