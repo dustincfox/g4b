@@ -3,7 +3,9 @@ setup users taking actions - rails tutorial
 setup checking in on actions - rails tutorial
   in tags#show sort actions by # of checkins and comments and recent checkins and comments
 
-setup reputation and voting on comments - thumbs_up
+setup reputation and voting on comments & checkins - thumbs_up
+
+Setup comments on check-ins
 
 setup nearby actions - require location
 
@@ -19,7 +21,7 @@ setup email notifications
 	digest
 	s/o has taken your action
 
-Setup comments on check-ins
-
 new name for check-ins
+
+clean up data structure for location, starts_at
 
