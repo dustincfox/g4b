@@ -13,9 +13,11 @@ gem 'thin'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 
 gem 'devise'
+
+gem 'underscore-rails'
 
 # group :development, :test do
 # 	gem 'rspec-rails'
@@ -23,10 +25,36 @@ gem 'devise'
 # 	gem 'capyabara'
 # end
 
+group :development do
+	gem 'pry'
+	gem 'pry-debugger'
+end
+
+group :test do
+  gem 'capybara', '1.1.2'
+	gem 'factory_girl_rails', '1.4.0'
+	gem 'email_spec', '1.2.1'
+	gem 'guard-rspec', '1.1.0'
+	gem "spork", '0.9.2'
+	gem 'guard-spork', '1.1.0'
+end
+
+group :development, :test do 
+	gem 'faker', '1.0.1'
+  gem 'rspec-rails'
+  gem 'awesome_print'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+	gem 'font-awesome-sass-rails'
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
 end
+
+gem 'coffee-rails', '~> 3.2.1'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'

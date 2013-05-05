@@ -1,41 +1,87 @@
-
-<div class="span6 offset2">
-  <h2>Let your values be your guide</h2>
-  <%= link_to "https://docs.google.com/forms/d/1H1LYBFdb7_65HEQq6voartCewJLGqKc99iYyUhumC5c/viewform" do %>
-    <%= image_tag "http://www.thisamericanlife.org/sites/default/files/survey.jpg" %>
-    <div class="lead">
-      Take our Survey
-    </div>
-  <% end %>
+<% if !user_signed_in? %>
+  <div class="row">
+    <div class="span12 text-center">
+      <h2>Your Values, Your Actions</h2>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  <%= f.email_field :email, placeholder:"Email" %>
+  <br />
+  <%= f.password_field :password, placeholder: "Password" %>
+  <div><%= f.submit "Discover Your Values and Start Acting", class:"text-center btn btn-large btn-success" do %>
 </div>
-
-<div class="jumbotron">
-  <% if user_signed_in? %>
-    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
-  <% end %>
-</div>
-
-<hr>
-
-<div class="span6 offset2">
-  <h2 class="pull-left">We're launching soon . . .</h2>
-  <div class="pull-right"><%= image_tag 'iphone_store.png', width:150 %></div>
-  <div class="span6">
-    <%= form_for @email_subscription do |f| %>
-      <% if @email_subscription.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@email_subscription.errors.count, "error") %> prohibited this email_subscription from being saved:</h2>
-          <ul>
-          <% @email_subscription.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
+<% end %>
       <% end %>
+    </div>
+  </div>
 
-      <%= f.label :email %>
-    	<%= f.text_field :email %><br>
-    	<%= f.submit "Get Notified", class:"btn btn-primary" %>
+<hr> 
+
+<% end %>
+
+<div class="row">
+<div class="span8">
+  <h3>Actions</h3>
+  <hr>
+<% if user_signed_in? %>
+    <h1 class="text-center">Mine</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>#Tags</th>
+          <th></th>
+        </tr>
+      </thead>
+      <%= render partial: 'posts/table', collection: @my_posts, as: :a %>  
+    </table>
+<% end %>
+
+  <h1 class="text-center">Nearby</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>#Tags</th>
+        <th></th>
+      </tr>
+    </thead>
+    <%= render partial: 'posts/table', collection: @near_by_actions, as: :a %>
+    </table>
+
+  <h1 class="text-center">Trending</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>#Tags</th>
+        <th></th>
+      </tr>
+    </thead>
+    <%= render partial: 'posts/table', collection: @trending_actions, as: :a %>  
+    </table>
+</div>
+
+  <div class="span3 offset1">
+    <h3>#Tags</h3>
+    <hr>
+    <% if user_signed_in? %>
+      <div class="lead">yours</div>
+      <% @my_tags.each do |t| %>
+        <%= link_to tag_path(t.name) do %>
+          <span class="label">#<%= t.name %></span>
+        <% end %>
+      <% end %>
+    <% end %>
+    <div class="lead">trending</div>
+    <% @trending_tags.each do |t| %>
+      <span class="label">#<%= t %></span>
+    <% end %>
+    <div class="lead">near you</div>
+    <% @tags_near_you.each do |t| %>
+      <span class="label">#<%= t %></span>
     <% end %>
   </div>
 </div>

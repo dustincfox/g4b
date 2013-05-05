@@ -11,33 +11,66 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407001112) do
+ActiveRecord::Schema.define(:version => 20130505034403) do
 
-  create_table "actions", :force => true do |t|
-    t.string   "title"
-    t.text     "desc"
-    t.string   "location"
-    t.datetime "happening_on"
+  create_table "check_ins", :force => true do |t|
+    t.string   "content"
+    t.integer  "post_id"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "checkinable_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
-  add_index "actions", ["user_id"], :name => "index_actions_on_user_id"
+  add_index "check_ins", ["post_id"], :name => "index_check_ins_on_post_id"
+  add_index "check_ins", ["user_id"], :name => "index_check_ins_on_user_id"
 
-  create_table "actions_tags", :id => false, :force => true do |t|
-    t.integer "action_id"
-    t.integer "tag_id"
+  create_table "comments", :force => true do |t|
+    t.string   "content"
+    t.integer  "commentable_id"
+    t.integer  "commentable_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
-  add_index "actions_tags", ["action_id", "tag_id"], :name => "index_actions_tags_on_action_id_and_tag_id"
-  add_index "actions_tags", ["tag_id", "action_id"], :name => "index_actions_tags_on_tag_id_and_action_id"
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
 
   create_table "email_subscriptions", :force => true do |t|
     t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.text     "desc"
+    t.string   "img_url"
+    t.string   "video_url"
+    t.string   "location"
+    t.date     "happening_on"
+    t.datetime "starts_at"
+    t.integer  "user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "posts_tags", :id => false, :force => true do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
+  end
+
+  add_index "posts_tags", ["post_id", "tag_id"], :name => "index_posts_tags_on_post_id_and_tag_id"
+  add_index "posts_tags", ["tag_id", "post_id"], :name => "index_posts_tags_on_tag_id_and_post_id"
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "taggings", ["post_id"], :name => "index_taggings_on_post_id"
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
 
   create_table "tags", :force => true do |t|
     t.string   "name"
@@ -48,6 +81,12 @@ ActiveRecord::Schema.define(:version => 20130407001112) do
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "name",                   :default => "", :null => false
+    t.integer  "care"
+    t.integer  "fairness"
+    t.integer  "loyalty"
+    t.integer  "authority"
+    t.integer  "purity"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

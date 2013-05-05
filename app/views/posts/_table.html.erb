@@ -1,0 +1,6 @@
+<tr>
+  <td><strong><%= a.title %></strong></td>
+  <td class="muted"><%= a.desc %></td>
+  <td><%= raw a.tags.map(&:name).map { |t| link_to "#" + t, tag_path(t), class:"label" }.join(' ') %></td>
+  <td><%= link_to "view", post_path(a) %> <a href="#">take</a></td>
+</tr>

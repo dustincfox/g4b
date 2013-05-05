@@ -1,14 +1,25 @@
 G4b::Application.routes.draw do
+  resources :posts
+
   root :to => 'welcome#index'
   match '/how', :to => 'welcome#how', :as => "how"
   match '/about', :to => 'welcome#about', :as => "about"
+  match '/survey', to: 'welcome#survey', as: "survey"
+  match '/submit_survey', to: 'welcome#submit_survey', as: "survey"
 
-  devise_for :users
-  resources :actions
+  devise_for :users, :controllers => { :registrations => "registrations" }
+  resources :tags, only: [:create, :destroy, :show]
   resources :comments
   resources :check_ins
-  resources :tags, only: [:create, :destroy]
-  resources :email_subscriptions, only: [:new, :create, :index]
+
+  get 'tags/:tag', to: 'tags#show', as: :tag
+
+  # namespace :api do
+  #   namespace :v1 do
+  #     match '/home', to: 'welcome#index', as: 
+
+  #   end
+  # end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

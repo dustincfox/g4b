@@ -1,0 +1,122 @@
+<div class="row clearfix">
+  <div class="check-in span4 pull-right">
+    <%= image_tag "green-dot.png", class:"green-dot" %>
+    <div class="btn btn-success btn-large">
+      Check In
+    </div>
+  </div>
+  <div class="span8">
+    <h2><%= @post.title %>
+        <% if user_signed_in? && current_user == @post.user %>
+          <%= link_to 'Edit', edit_post_path(@post), style: "font-size:17px;" %>
+        <% end %>
+    </h2>
+    <div class="muted created-on">
+      created on: <%= @post.created_at.strftime "%A %B %e" %>
+    </div>
+    <div>
+      <%= raw @post.tags.map(&:name).map { |t| link_to "#" + t, tag_path(t), class:"label" }.join(' ') %>
+    </div>    
+    <strong>Desc:</strong> <span class="muted"><%= @post.desc %></span><br><br>
+    <% if @post.happening_on.present? %>
+      <strong>Happening on:</strong> <%= @post.happening_on %><br>
+    <% end %>
+    <% if @post.starts_at.present? %>
+      <strong>Starts at:</strong> <%= @post.starts_at %><br>
+    <% end %>
+    <% if @post.location.present? %>
+      <strong>Location:</strong> <span class="muted"><%= @post.location %></span><br>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span6 text-center">
+    <% if @post.img_url.present? %>
+      <%= image_tag @post.img_url, width:200 %> 
+    <% end %>
+  </div>
+  <div class="span6">
+    <% if @post.video_url.present? %>
+      <%= raw(youtube_embed(@post.video_url)) %>
+    <% end %>
+  </div>
+</div>
+<hr>
+<% if @post.user == current_user %>
+<div class="row border-bottom clearfix">
+  <div class="span8">
+    <h3>comments</h3>
+    <ul class="media-list">
+    <% @comments.each do |c| %>
+      <li class="media">
+        <a class="pull-left" href="#">
+          <img class="media-object" data-src="holder.js/64x64">
+        </a>
+        <div class="media-body">
+          <div class="media-heading"><%= c.content %></div>
+          <div class="pull-right muted"></div>
+          <!-- Nested media object -->
+          <div class="media">
+         </div>
+        </div>
+      </li>
+    <% end %>
+    </ul>
+    <%= render partial: 'comments/form' %>
+  </div>
+  <div class="span4">
+    <h5>Recent Check Ins</h5>
+    <ul class="media-list">
+      <li class="media">
+        <a class="pull-left" href="#">
+          <%= image_tag "pro-pic.png", class:"media-object", width:40 %>
+        </a>
+        <div class="media-body">
+          <div class="media-heading">Blah</div>
+          <div class="muted">"I got 100 reteweets!"</div>
+          <!-- Nested media object -->
+          <div class="media">
+         </div>
+        </div>
+      </li>
+        <li class="media">
+        <a class="pull-left" href="#">
+          <%= image_tag "pro-pic.png", class:"media-object", width:40 %>
+        </a>
+        <div class="media-body">
+          <div class="media-heading">Blah</div>
+          <div class="muted">"I got 100 reteweets!"</div>
+          <!-- Nested media object -->
+          <div class="media">
+         </div>
+        </div>
+      </li>
+        <li class="media">
+        <a class="pull-left" href="#">
+          <%= image_tag "pro-pic.png", class:"media-object", width:40 %>
+        </a>
+        <div class="media-body">
+          <div class="media-heading">Blah</div>
+          <div class="muted">"I got 100 reteweets!"</div>
+          <!-- Nested media object -->
+          <div class="media">
+         </div>
+        </div>
+      </li>
+        <li class="media">
+        <a class="pull-left" href="#">
+          <%= image_tag "pro-pic.png", class:"media-object", width:40 %>
+        </a>
+        <div class="media-body">
+          <div class="media-heading">Blah</div>
+          <div class="muted">"I got 100 reteweets!"</div>
+          <!-- Nested media object -->
+          <div class="media">
+         </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<% end %>

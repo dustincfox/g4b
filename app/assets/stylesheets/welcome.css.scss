@@ -1,7 +1,124 @@
+@font-face {
+  font-family: gurmukhi;
+  src: url('gurmukhi_sangam_mn.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+ }
+
 hr {
 	clear:both;
 }
 
+body {
+	font-family: gurmukhi, "lucida grande", arial;
+}
+
 footer {
-	clear:both;
+clear: both;
+background-color: #232323;
+border-bottom: 1px solid #151515;
+height: 160px;
+margin-top: 2px;
+min-width: 984px;
+color: white;
+padding: 0 50px;
+padding-top: 70px;
+}
+
+.brand {
+	img {
+		height:40px;
+		bottom: 7px;
+		position: relative;
+	}
+}
+
+.row {
+
+}
+
+.container {
+	position: relative;
+top: 90px;
+padding-bottom: 150px;
+}
+
+.media-object {
+	border-radius: 4px;
+}
+
+.media {
+	margin-top: 0px;
+}
+
+.border-bottom {
+	border-bottom:1px solid lightgrey;
+}
+
+.navbar {
+	border-bottom: 1px solid lightgrey;
+width: 100%;
+background: white;
+z-index: 100;
+}
+
+.nav-border {
+	height: 50px;
+	padding-top: 14px;
+}
+
+.navbar-inner {
+	background:none;
+	border:none;
+	box-shadow: none;
+}
+
+.analytics {
+	position: relative;
+bottom: 11px;
+}
+
+.created-on {
+	position: relative;
+bottom: 19px;
+left: 3px;
+}
+
+.green-dot {
+	margin-left: -60px;
+width: 47px;
+}
+
+.check-in {
+	text-align: center;
+background: #F6F6F6;
+padding: 17px 0;
+margin-left: -20px;
+position: relative;
+left: 30px;
+padding-left: 40px;
+}
+
+.label {
+	background:lightgrey;
+	cursor:pointer;
+	font-size: 17px;
+	padding:7px;
+	margin:3px;
+	&:hover {
+		background:#BAF254;
+	}
+}
+
+form.survey {
+	input[type=number] {
+		width:25px;
+		text-align: center;
+	}
+}
+
+ul.scale {
+	list-style: none;
+	li {
+	}
 }

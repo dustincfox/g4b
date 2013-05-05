@@ -1,3 +1,25 @@
-setup adding tags into the create action form
-setup checking in (nested to action)
-setup comments on check_ins and on actions
+setup users taking actions - rails tutorial
+
+setup checking in on actions - rails tutorial
+  in tags#show sort actions by # of checkins and comments and recent checkins and comments
+
+setup reputation and voting on comments - thumbs_up
+
+setup nearby actions - require location
+
+setup social sharing through twitter
+
+setup twitter login
+setup facebook login
+
+setup lazy high-charts graphics
+
+setup email notifications
+	welcome
+	digest
+	s/o has taken your action
+
+Setup comments on check-ins
+
+new name for check-ins
+
