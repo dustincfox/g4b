@@ -1,4 +1,4 @@
-setup users taking actions - rails tutorial
+setup users taking actions - rails tutorial 
 
 setup checking in on actions - rails tutorial
   in tags#show sort actions by # of checkins and comments and recent checkins and comments

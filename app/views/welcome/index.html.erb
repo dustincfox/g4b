@@ -33,7 +33,7 @@
           <th></th>
         </tr>
       </thead>
-      <%= render partial: 'posts/table', collection: @my_posts, as: :a %>  
+      <%= render partial: 'posts/table', collection: @my_posts, as: :post %>  
     </table>
 <% end %>
 
@@ -47,7 +47,7 @@
         <th></th>
       </tr>
     </thead>
-    <%= render partial: 'posts/table', collection: @near_by_actions, as: :a %>
+    <%= render partial: 'posts/table', collection: @near_by_actions, as: :post %>
     </table>
 
   <h1 class="text-center">Trending</h2>
@@ -60,7 +60,7 @@
         <th></th>
       </tr>
     </thead>
-    <%= render partial: 'posts/table', collection: @trending_actions, as: :a %>  
+    <%= render partial: 'posts/table', collection: @trending_actions, as: :post %>  
     </table>
 </div>
 

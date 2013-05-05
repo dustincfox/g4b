@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
   belongs_to :user
+  has_many :committed_users, through: :commitments
+
   has_many :comments, as: :commentable
   has_many :check_ins, as: :checkinable
   has_and_belongs_to_many :tags
@@ -30,5 +32,9 @@ class Post < ActiveRecord::Base
     self.tags = names.split(",").map do |n|
       Tag.where(name: n.strip).first_or_create!
     end
+  end
+
+  def is_committed_to_by?(user)
+    return self.committed_user.find_by_committed_user_id(user.id).present?
   end
 end
