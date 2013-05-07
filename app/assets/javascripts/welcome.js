@@ -1,5 +1,5 @@
 
-// $(document).ready(function() {
+$(document).ready(function() {
 	
 //   $(function() {
 //       $('ul.nav a').bind('click',function(event){

@@ -18,7 +18,7 @@ create interactions table
 
   People
     # votes up on comments and checkins
-    
+
     # actions created
     # tags created
     # actions joined
@@ -57,3 +57,5 @@ new name for check-ins
 DONE Setup tags
 
 DONE setup users taking actions - rails tutorial 
+
+DONE Auto backup the db every day, week, month
