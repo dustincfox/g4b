@@ -34,7 +34,7 @@
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
-    <% end %>
+<% end %>
   </head>
   <body>  
     <div class="navbar" data-spy="affix" data-offset-top="100px">
@@ -65,15 +65,15 @@
         <%= bootstrap_flash %>
         <%= yield %>
     </div> <!-- /container -->
-
-      <footer>
-        <p>&copy; Good4Better 2013</p>
-      </footer>
-      
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
+
+    <footer>
+      <p>&copy; Good4Better 2013</p>
+    </footer>
+      
 
   </body>
 </html>

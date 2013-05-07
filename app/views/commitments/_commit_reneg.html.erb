@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <div id="commit_form">
 <% if current_user.committed_to?(post) %>
   <%= render partial: 'commitments/reneg', locals: { post: post } %>
@@ -5,3 +6,4 @@
   <%= render partial: 'commitments/commit', locals: { post: post } %>
 <% end %>
 </div>
+<% end %>

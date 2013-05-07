@@ -3,27 +3,25 @@
     <div class="span12 text-center">
       <h2>Your Values, Your Actions</h2>
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.email_field :email, placeholder:"Email" %>
-  <br />
-  <%= f.password_field :password, placeholder: "Password" %>
-  <div><%= f.submit "Discover Your Values and Start Acting", class:"text-center btn btn-large btn-success" do %>
-</div>
-<% end %>
+        <%= devise_error_messages! %>
+        <%= f.email_field :email, placeholder:"Email" %>
+        <br />
+        <%= f.password_field :password, placeholder: "Password" %>
+        <div>
+          <%= f.submit "Discover Your Values and Start Acting", class:"text-center btn btn-large btn-success" %>
+        </div>
       <% end %>
     </div>
   </div>
-
-<hr> 
-
+ <hr>  
 <% end %>
 
 <div class="row">
-<div class="span8">
-  <h3>Actions</h3>
-  <hr>
-<% if user_signed_in? %>
-    <h1 class="text-center">Mine</h2>
+  <div class="span8 text-center">
+    <h1>Actions</h1>
+    <hr>
+  <% if user_signed_in? %>
+    <h3 class="text-left">Mine</h3>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -35,34 +33,33 @@
       </thead>
       <%= render partial: 'posts/table', collection: @my_posts, as: :post %>  
     </table>
-<% end %>
+  <% end %>
+    <h3 class="text-left">Nearby</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>#Tags</th>
+          <th></th>
+        </tr>
+      </thead>
+      <%= render partial: 'posts/table', collection: @near_by_actions, as: :post %>
+      </table>
 
-  <h1 class="text-center">Nearby</h2>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>#Tags</th>
-        <th></th>
-      </tr>
-    </thead>
-    <%= render partial: 'posts/table', collection: @near_by_actions, as: :post %>
+    <h3 class="text-left">Trending</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>#Tags</th>
+          <th></th>
+        </tr>
+      </thead>
+      <%= render partial: 'posts/table', collection: @trending_actions, as: :post %>  
     </table>
-
-  <h1 class="text-center">Trending</h2>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>#Tags</th>
-        <th></th>
-      </tr>
-    </thead>
-    <%= render partial: 'posts/table', collection: @trending_actions, as: :post %>  
-    </table>
-</div>
+  </div>
 
   <div class="span3 offset1">
     <h3>#Tags</h3>
