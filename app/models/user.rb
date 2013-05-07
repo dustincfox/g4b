@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :commitments, foreign_key: "committed_user_id", dependent: :destroy
+  has_many :committed_tos, through: :commitments, source: "commitment"
 
   has_many :comments, as: :commentable
   has_many :check_ins, as: :checkinable
@@ -23,7 +24,7 @@ class User < ActiveRecord::Base
     commitments.create!(commitment_id: post.id)
   end  
 
-  def reneg!(post)
-    commitments.find_by_commitment_id(commitment_id: post.id).destroy
+  def reneg!(commitment)
+    commitments.find(commitment.id).destroy
   end
 end

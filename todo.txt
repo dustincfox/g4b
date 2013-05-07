@@ -1,20 +1,49 @@
-setup users taking actions - rails tutorial 
-
 setup checking in on actions - rails tutorial
   in tags#show sort actions by # of checkins and comments and recent checkins and comments
 
+setup thumbs_up on checkins and actions
+
+setup social sharing through twitter
+
+setup search with weight for tags
+
+create interactions table
+  Actions
+    # views
+    # votes up
+    # checkins
+
+  Tags
+    # actions
+
+  People
+    # votes up on comments and checkins
+    
+    # actions created
+    # tags created
+    # actions joined
+    # actions taken
+
 setup reputation and voting on comments & checkins - thumbs_up
+  vote up comment recieve karma
+  vote up checkin recieve karma
+  join action +2 reputation
+  vote down on comment -2 karma
+  flag comment -5 karma
+
+Permissions
+  20 karma create actions
+  100 create your own tag
+  200 allow vote down on action
 
 Setup comments on check-ins
 
 setup nearby actions - require location
 
-setup social sharing through twitter
-
 setup twitter login
 setup facebook login
 
-setup lazy high-charts graphics
+setup lazy high-charts graphics for #tag activity and activity checkins
 
 setup email notifications
 	welcome
@@ -23,5 +52,8 @@ setup email notifications
 
 new name for check-ins
 
-clean up data structure for location, starts_at
 
+
+DONE Setup tags
+
+DONE setup users taking actions - rails tutorial 

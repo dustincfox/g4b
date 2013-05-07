@@ -75,13 +75,13 @@
         <% end %>
       <% end %>
     <% end %>
+    <div class="lead">nearby</div>
+    <% @tags_near_you.each do |t| %>
+      <span class="label">#<%= t.name %></span>
+    <% end %>
     <div class="lead">trending</div>
     <% @trending_tags.each do |t| %>
-      <span class="label">#<%= t %></span>
-    <% end %>
-    <div class="lead">near you</div>
-    <% @tags_near_you.each do |t| %>
-      <span class="label">#<%= t %></span>
-    <% end %>
+      <span class="label">#<%= t.name %></span>
+    <% end %>    
   </div>
 </div>

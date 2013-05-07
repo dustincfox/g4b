@@ -12,6 +12,8 @@ G4b::Application.routes.draw do
   resources :comments
   resources :check_ins
 
+  resources :commitments, only: [:create, :destroy]
+
   get 'tags/:tag', to: 'tags#show', as: :tag
 
   # namespace :api do

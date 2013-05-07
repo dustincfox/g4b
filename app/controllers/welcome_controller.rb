@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
   	if user_signed_in?
-  		@my_posts = current_user.posts
+  		@my_posts = current_user.committed_tos
   		tag_ids = []
   		@my_posts.each do |p| 
         ids = p.tags.pluck(:id)
@@ -19,10 +19,8 @@ class WelcomeController < ApplicationController
   	end
     @near_by_actions = Post.all
 		@trending_actions = Post.all
-		@trending_tags = ["Haiti", "Food Pantry", "Lil' Things", "Gay Marriage", "Senior Care"]
-    @tags_near_you = ["Legalize Mary Jane", "V Day", "Women's Rights", "Gay Marriage", "Homelessness"]
-		@email_subscription = EmailSubscription.new
-		@subscription_counter = EmailSubscription.all.count
+		@trending_tags = Tag.last(8)
+    @tags_near_you = Tag.last(8)
   end
   def about
   end
