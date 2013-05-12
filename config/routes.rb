@@ -10,9 +10,9 @@ G4b::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations" }
   resources :tags, only: [:create, :destroy, :show]
   resources :comments
-  resources :check_ins
 
   resources :commitments, only: [:create, :destroy]
+  resources :check_ins, only: [:create]
 
   get 'tags/:tag', to: 'tags#show', as: :tag
 

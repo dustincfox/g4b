@@ -1,31 +1,42 @@
-<h1>Listing posts</h1>
+<div class="row">
+  <div class="span8 text-center">
+    <h1>Actions</h1>
+    <hr>
+    
+    <h3 class="text-left"><%= @search_query %></h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>#Tags</th>
+          <th></th>
+        </tr>
+      </thead>
+      <%= render partial: 'posts/table', collection: @posts, as: :post %>  
+    </table>
+  </div>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Desc</th>
-    <th>Location</th>
-    <th>Happening on</th>
-    <th>Starts at</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= post.desc %></td>
-    <td><%= post.location %></td>
-    <td><%= post.happening_on %></td>
-    <td><%= post.starts_at %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Post', new_post_path %>
+  <div class="span3 offset1">
+    <h3>#Tags</h3>
+    <hr>
+    <div class="lead">tags of results</div>
+    <% @tags_from_results.each do |t| %>
+      <%= link_to tag_path(t.name) do %>
+        <span class="label">#<%= t.name %></span>
+      <% end %>
+    <% end %>
+    <div class="lead">nearby</div>
+    <% @tags_near_you.each do |t| %>
+      <%= link_to tag_path(t.name) do %>
+        <span class="label">#<%= t.name %></span>
+      <% end %>
+    <% end %>
+    <div class="lead">trending</div>
+    <% @trending_tags.each do |t| %>
+      <%= link_to tag_path(t.name) do %>
+        <span class="label">#<%= t.name %></span>
+      <% end %>
+    <% end %>    
+  </div>
+</div>

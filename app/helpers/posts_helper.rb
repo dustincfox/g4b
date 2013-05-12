@@ -1,4 +1,4 @@
-module PostsHelper
+module PostsHelper  
 	def youtube_embed(youtube_url)
   	if youtube_url[/youtu\.be\/([^\?]*)/]
     	youtube_id = $1

@@ -1,1 +1,0 @@
-var html = _.template('<li><%= name %></li>', { name: 'John Smith' });

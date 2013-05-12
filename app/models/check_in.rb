@@ -1,6 +1,9 @@
 class CheckIn < ActiveRecord::Base
-  belongs_to :post
-  belongs_to :user
-  has_many :comments, as: :commentable
-  attr_accessible :content
+  attr_accessible :checked_in_post_id, :content
+  
+  belongs_to :checked_in_user, class_name: "User"
+  belongs_to :checked_in_post, class_name: "Post"
+
+  validates :checked_in_user_id, presence: true
+  validates :checked_in_post_id, presence: true   
 end

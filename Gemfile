@@ -8,7 +8,12 @@ gem 'heroku'
 
 gem 'pg'
 
+gem 'thinking-sphinx', '2.0.11'
+gem 'flying-sphinx',   '0.8.4'
+
 gem 'thin'
+
+gem 'whenever', require: false
 
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
@@ -17,7 +22,7 @@ gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 
 gem 'devise'
 
-gem 'underscore-rails'
+gem 'lazy_high_charts'
 
 # group :development, :test do
 # 	gem 'rspec-rails'

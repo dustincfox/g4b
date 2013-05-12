@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
   def reneg!(commitment)
     commitments.find(commitment.id).destroy
   end
+
+  def check_in!(post, content)
+    check_ins.create!(checked_in_post_id: post.id, content: content)
+  end
 end

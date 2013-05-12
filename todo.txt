@@ -1,13 +1,19 @@
 setup checking in on actions - rails tutorial
   in tags#show sort actions by # of checkins and comments and recent checkins and comments
 
-setup thumbs_up on checkins and actions
+setup lazy high-charts graphics for #tag activity and activity checkins
+  set plot graph xaxis to date
+  create checkins
+
+count impressions with impressionist (add cache counter - impressions_count)
+  is_impressionable :counter_cache => { :column_name => :my_column, :unique => true }
+  
+setup thumbs_up on checkins and comments
 
 setup social sharing through twitter
 
-setup search with weight for tags
+create interactions table for how many times an action has been viewed
 
-create interactions table
   Actions
     # views
     # votes up
@@ -24,13 +30,6 @@ create interactions table
     # actions joined
     # actions taken
 
-setup reputation and voting on comments & checkins - thumbs_up
-  vote up comment recieve karma
-  vote up checkin recieve karma
-  join action +2 reputation
-  vote down on comment -2 karma
-  flag comment -5 karma
-
 Permissions
   20 karma create actions
   100 create your own tag
@@ -43,12 +42,13 @@ setup nearby actions - require location
 setup twitter login
 setup facebook login
 
-setup lazy high-charts graphics for #tag activity and activity checkins
-
 setup email notifications
 	welcome
-	digest
-	s/o has taken your action
+	s/o has joined your action
+  action comments digest (over 10 votes?)
+  someone commented on your comment
+  someone voted up your comment
+  you now have 100 points!
 
 new name for check-ins
 
@@ -59,3 +59,7 @@ DONE Setup tags
 DONE setup users taking actions - rails tutorial 
 
 DONE Auto backup the db every day, week, month
+
+DONE Search for actions
+  DONE weight by title and weight by tag
+  DONE setup whenever gem to set cron job to reindex: rake ts:reindex

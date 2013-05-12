@@ -2,11 +2,26 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    if params[:tag]
-      @posts = Post.tagged_with(params[:tag])
-    else
-      @posts = Post.all
+    if params[:search]
+      @search_query = params[:search]
+      @posts = Post.search(params[:search], field_weights: {tag_name: 7, title: 3})
+      # Search options:
+      #   order: :name
+      #   page: 1, per_page: 20
+      #   conditions: {name: "Batman"}
+      #   with: {author_id: 2}
+      #   with: {created_at: 3.weeks.ago..Time.zone.now}
+      #   field_weights: {name: 20, content: 10, author_name: 5}
+      #   match_mode: :boolean   
+      @tags_from_results = []
+      @tags_near_you = []
+      @trending_tags = Tag.last(8)
     end
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @post }
+    end    
   end
 
   # GET /posts/1

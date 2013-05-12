@@ -15,6 +15,18 @@ class Post < ActiveRecord::Base
                   :img_url, 
                   :tag_list
 
+  define_index do
+    indexes :desc, as: :description
+    indexes tags(:name), as: :tag_name
+    indexes :title, as: :post_title
+    #indexes location, sortable: true
+    #indexes happening_on, sortable: true
+    # indexes tag.name, as: :tag_name
+
+    # has author_id, published_at
+    has created_at
+  end
+
   def self.tagged_with(name)
     Tag.find_by_name!(name).posts
   end
@@ -36,5 +48,13 @@ class Post < ActiveRecord::Base
 
   def is_committed_to_by?(user)
     return self.committed_user.find_by_committed_user_id(user.id).present?
+  end
+
+  def checkins_per_day
+    checkins_per_day = []
+    self.created_at.to_date.upto(Date.today).each do |date|
+      checkins_per_day.push(self.checkins.select { |ci| ci.created_at == date })
+    end
+    return checkins_per_day
   end
 end
