@@ -24,6 +24,8 @@ gem 'devise'
 
 gem 'lazy_high_charts'
 
+gem 'thumbs_up'
+
 # group :development, :test do
 # 	gem 'rspec-rails'
 # 	gem 'turnip'

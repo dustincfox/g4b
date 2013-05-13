@@ -6,4 +6,6 @@ class CheckIn < ActiveRecord::Base
 
   validates :checked_in_user_id, presence: true
   validates :checked_in_post_id, presence: true   
+
+  acts_as_voteable
 end

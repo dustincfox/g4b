@@ -45,15 +45,25 @@
     <ul class="media-list">
     <% @comments.each do |c| %>
       <li class="media">
+        <div class="vote-count">
+          <%= c.plusminus %>
+        </div>
+        <div class="pull-left">
+          <% if user_signed_in? %>
+            <%= link_to vote_up_comment_path(c) do %>
+              <p><i class="icon-chevron-up <%= current_user.voted_for?(c) ? 'voted' : 'not-voted' %>"></i></p>
+            <% end %>
+            <%= link_to vote_down_comment_path(c) do %>
+              <p><i class="icon-chevron-down <%= current_user.voted_against?(c) ? 'voted' : 'not-voted' %>"></i></p>
+            <% end %>
+          <% end %>
+        </div>        
         <a class="pull-left" href="#">
-          <img class="media-object" data-src="holder.js/64x64">
+          <%= image_tag 'default_profile_pic.png', class:"media-object comment-pic" %>
         </a>
         <div class="media-body">
-          <div class="media-heading"><%= c.content %></div>
-          <div class="pull-right muted"></div>
-          <!-- Nested media object -->
-          <div class="media">
-         </div>
+          <div class="media-heading"><%= c.commentable.user.name %></div>
+          <div class="pull-right muted"><%= c.content %></div>
         </div>
       </li>
     <% end %>

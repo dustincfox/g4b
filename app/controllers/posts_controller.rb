@@ -29,7 +29,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments
-    @comment = @post.comments.build
 
     respond_to do |format|
       format.html # show.html.erb

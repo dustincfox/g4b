@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
   has_many :check_ins, foreign_key: "checked_in_user_id", dependent: :destroy
   has_many :checked_in_posts, through: :check_ins, source: "checked_in_post"
 
+  acts_as_voter
+  # has_karma(:check_ins)
+  has_karma(:comments)
+
   def committed_to?(post)
     return commitments.find_by_commitment_id(post.id).present?
   end
@@ -34,6 +38,7 @@ class User < ActiveRecord::Base
   end
 
   def checked_in?(post)
-    return check_ins.find_by_checked_in_post_id(post.id).created_at > Time.now - 1.day
+    check_in = check_ins.find_by_checked_in_post_id(post.id)
+    return check_in.present? && check_in.created_at > Time.now - 1.day
   end
 end

@@ -1,14 +1,14 @@
 setup thumbs_up on checkins and comments
 
-  if take action, also join if not already joined
-  sort trending actions by # of checkins
-
 count impressions with impressionist (add cache counter - impressions_count)
   is_impressionable :counter_cache => { :column_name => :my_column, :unique => true }
 
 setup social sharing through twitter
 
-create interactions table for how many times an action has been viewed
+setup referral to gain 20 points, 20 points to share on fb, and 20 points to tweet, 100 points to create an action
+
+  if take action, also join if not already joined
+  sort trending actions by # of checkins
 
   Actions
     # views
@@ -44,11 +44,9 @@ setup email notifications
   action comments digest (over 10 votes?)
   someone commented on your comment
   someone voted up your comment
-  you now have 100 points!
+  you now have 100 points
 
-new name for check-ins
-
-
+-------------------------------------------------------
 
 DONE Setup tags
 
