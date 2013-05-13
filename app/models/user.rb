@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
   has_many :committed_tos, through: :commitments, source: "commitment"
 
   has_many :comments, as: :commentable
-  has_many :check_ins, as: :checkinable
+  has_many :check_ins, foreign_key: "checked_in_user_id", dependent: :destroy
+  has_many :checked_in_posts, through: :check_ins, source: "checked_in_post"
 
   def committed_to?(post)
     return commitments.find_by_commitment_id(post.id).present?
@@ -30,5 +31,9 @@ class User < ActiveRecord::Base
 
   def check_in!(post, content)
     check_ins.create!(checked_in_post_id: post.id, content: content)
+  end
+
+  def checked_in?(post)
+    return check_ins.find_by_checked_in_post_id(post.id).created_at > Time.now - 1.day
   end
 end

@@ -1,10 +1,13 @@
 class Post < ActiveRecord::Base
   belongs_to :user
+
   has_many :committed_users, through: :commitments
 
-  has_many :comments, as: :commentable
-  has_many :check_ins, as: :checkinable
+  has_many :check_ins, foreign_key: "checked_in_post_id"
+
   has_and_belongs_to_many :tags
+
+  has_many :comments, as: :commentable
 
   attr_accessible :desc, 
                   :happening_on, 
@@ -53,8 +56,16 @@ class Post < ActiveRecord::Base
   def checkins_per_day
     checkins_per_day = []
     self.created_at.to_date.upto(Date.today).each do |date|
-      checkins_per_day.push(self.checkins.select { |ci| ci.created_at == date })
+      checkins_per_day.push(self.check_ins.select { |ci| ci.created_at == date })
     end
     return checkins_per_day
+  end
+
+  def short_title
+    if self.title.size >=10
+      self.title.slice(0..10)
+    else
+      self.title
+    end
   end
 end

@@ -15,15 +15,15 @@ ActiveRecord::Schema.define(:version => 20130505054845) do
 
   create_table "check_ins", :force => true do |t|
     t.string   "content"
-    t.integer  "post_id"
-    t.integer  "user_id"
-    t.integer  "checkinable_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "checked_in_user_id"
+    t.integer  "checked_in_post_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
-  add_index "check_ins", ["post_id"], :name => "index_check_ins_on_post_id"
-  add_index "check_ins", ["user_id"], :name => "index_check_ins_on_user_id"
+  add_index "check_ins", ["checked_in_post_id"], :name => "index_check_ins_on_checked_in_post_id"
+  add_index "check_ins", ["checked_in_user_id", "checked_in_post_id"], :name => "index_check_ins_on_checked_in_user_id_and_checked_in_post_id", :unique => true
+  add_index "check_ins", ["checked_in_user_id"], :name => "index_check_ins_on_checked_in_user_id"
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -46,12 +46,6 @@ ActiveRecord::Schema.define(:version => 20130505054845) do
   add_index "commitments", ["committed_user_id", "commitment_id"], :name => "index_commitments_on_committed_user_id_and_commitment_id", :unique => true
   add_index "commitments", ["committed_user_id"], :name => "index_commitments_on_committed_user_id"
 
-  create_table "email_subscriptions", :force => true do |t|
-    t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "desc"
@@ -73,21 +67,13 @@ ActiveRecord::Schema.define(:version => 20130505054845) do
   add_index "posts_tags", ["post_id", "tag_id"], :name => "index_posts_tags_on_post_id_and_tag_id"
   add_index "posts_tags", ["tag_id", "post_id"], :name => "index_posts_tags_on_tag_id_and_post_id"
 
-  create_table "taggings", :force => true do |t|
-    t.integer  "tag_id"
-    t.integer  "post_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "taggings", ["post_id"], :name => "index_taggings_on_post_id"
-  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
-
   create_table "tags", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "tags", ["name"], :name => "index_tags_on_name"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

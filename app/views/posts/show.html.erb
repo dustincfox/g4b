@@ -1,10 +1,5 @@
 <div class="row clearfix">
-  <div class="check-in span4 pull-right">
-    <%= image_tag "green-dot.png", class:"green-dot" %>
-    <div class="btn btn-success btn-large">
-      Take Action
-    </div>
-  </div>
+  <%= render partial:'check_ins/check_in', locals: { post: @post } %>
   <div class="span8">
     <h2><%= @post.title %>
         <% if user_signed_in? && current_user == @post.user %>
@@ -68,54 +63,20 @@
   <div class="span4">
     <h5>Recent Takers</h5>
     <ul class="media-list">
-      <li class="media">
-        <a class="pull-left" href="#">
-          <%= image_tag "pro-pic.png", class:"media-object", width:40 %>
-        </a>
-        <div class="media-body">
-          <div class="media-heading">Blah</div>
-          <div class="muted">"I got 100 reteweets!"</div>
-          <!-- Nested media object -->
-          <div class="media">
-         </div>
-        </div>
-      </li>
+      <% @post.check_ins.each do |ci| %>
         <li class="media">
-        <a class="pull-left" href="#">
-          <%= image_tag "pro-pic.png", class:"media-object", width:40 %>
-        </a>
-        <div class="media-body">
-          <div class="media-heading">Blah</div>
-          <div class="muted">"I got 100 reteweets!"</div>
-          <!-- Nested media object -->
-          <div class="media">
-         </div>
-        </div>
-      </li>
-        <li class="media">
-        <a class="pull-left" href="#">
-          <%= image_tag "pro-pic.png", class:"media-object", width:40 %>
-        </a>
-        <div class="media-body">
-          <div class="media-heading">Blah</div>
-          <div class="muted">"I got 100 reteweets!"</div>
-          <!-- Nested media object -->
-          <div class="media">
-         </div>
-        </div>
-      </li>
-        <li class="media">
-        <a class="pull-left" href="#">
-          <%= image_tag "pro-pic.png", class:"media-object", width:40 %>
-        </a>
-        <div class="media-body">
-          <div class="media-heading">Blah</div>
-          <div class="muted">"I got 100 reteweets!"</div>
-          <!-- Nested media object -->
-          <div class="media">
-         </div>
-        </div>
-      </li>
+          <a class="pull-left" href="#">
+            <%= image_tag "pro-pic.png", class:"media-object", width:40 %>
+          </a>
+          <div class="media-body">
+            <div class="media-heading"><%= ci.checked_in_user.name %></div>
+            <div class="muted">"<%= ci.content %>"</div>
+            <!-- Nested media object -->
+            <div class="media">
+           </div>
+          </div>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>

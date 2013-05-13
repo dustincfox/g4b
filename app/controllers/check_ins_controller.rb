@@ -3,7 +3,7 @@ class CheckInsController < ApplicationController
 
   def create
     @post = Post.find(params[:check_in][:checked_in_post_id])
-    @content = params[:check_in][:content])
+    @content = params[:check_in][:content]
     current_user.check_in!(@post, @content)
     respond_to do |format|
       format.html { redirect_to @post }
