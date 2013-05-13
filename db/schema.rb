@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130513005636) do
   end
 
   add_index "check_ins", ["checked_in_post_id"], :name => "index_check_ins_on_checked_in_post_id"
-  add_index "check_ins", ["checked_in_user_id", "checked_in_post_id"], :name => "index_check_ins_on_checked_in_user_id_and_checked_in_post_id", :unique => true
+  add_index "check_ins", ["checked_in_user_id", "checked_in_post_id"], :name => "index_check_ins_on_checked_in_user_id_and_checked_in_post_id"
   add_index "check_ins", ["checked_in_user_id"], :name => "index_check_ins_on_checked_in_user_id"
 
   create_table "comments", :force => true do |t|

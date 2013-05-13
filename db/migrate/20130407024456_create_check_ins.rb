@@ -10,7 +10,7 @@ class CreateCheckIns < ActiveRecord::Migration
 
     add_index :check_ins, :checked_in_user_id
     add_index :check_ins, :checked_in_post_id
-    add_index :check_ins, [:checked_in_user_id, :checked_in_post_id], unique: true
+    add_index :check_ins, [:checked_in_user_id, :checked_in_post_id]
 
   end
 end
