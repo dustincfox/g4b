@@ -1,19 +1,12 @@
-setup social sharing through twitter
-
-add profile screen after signup
-
 count impressions with impressionist (add cache counter - impressions_count)
   is_impressionable :counter_cache => { :column_name => :my_column, :unique => true }
 
-setup referral to gain 20 points, 20 points to share on fb, and 20 points to tweet, 100 points to create an action
-
-  if take action, also join if not already joined
-  sort trending actions by # of checkins
+add profile screen after signup, username, name, location
 
   Actions
     # views
-    # votes up
-    # checkins
+    # commitments
+    # taken
 
   Tags
     # actions
@@ -26,17 +19,20 @@ setup referral to gain 20 points, 20 points to share on fb, and 20 points to twe
     # actions joined
     # actions taken
 
-Permissions
-  20 karma create actions
-  100 create your own tag
-  200 allow vote down on action
+  if take action, also join if not already joined
+  sort trending actions by # of checkins
 
-Setup comments on check-ins
+profile page
+  reputation
+    unlocked permissions
+    how to get points
+  activity (public activity)
+    actions created
+    commitments
+    taken
+    comments created
 
 setup nearby actions - require location
-
-setup twitter login
-setup facebook login
 
 setup email notifications
 	welcome
@@ -44,9 +40,27 @@ setup email notifications
   action comments digest (over 10 votes?)
   someone commented on your comment
   someone voted up your comment
-  you now have 100 points
+  unlocked new permission
 
--------------------------------------------------------
+----------------
+
+setup referral to gain 20 points, 20 points to share on fb, and 20 points to tweet, 100 points to create an action
+
+Permissions
+  20 karma create actions
+  100 create your own tag
+  200 allow vote down on action
+  1000 allow crowdfunding through G4B
+
+Setup comments on check-ins
+Setup comments on comments
+
+setup flagging comments, checkins, and actions for moderation
+
+setup twitter login
+setup facebook login
+
+---------------------------------------
 
 DONE Setup tags
 

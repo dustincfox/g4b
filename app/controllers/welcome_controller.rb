@@ -67,7 +67,7 @@ class WelcomeController < ApplicationController
 
     if user.save
       respond_to do |format|
-        format.html { redirect_to root_path, notice:"Awesome job! Here are Actions that match your values. Join, Take, and comment on Actions and Causes to improve your matching and unlock more permissions on the site." }
+        format.html { redirect_to root_path, notice:"Welcome! Here are Actions that match your values. Join, Take, and comment on Actions and Causes to improve your matching and unlock more permissions on the site." }
         format.json { render json: @post }
       end    
     else
