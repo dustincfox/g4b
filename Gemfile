@@ -4,7 +4,7 @@ ruby '2.0.0'
 
 gem 'rails', '3.2.6'
 
-gem 'heroku'
+# gem 'heroku'
 
 gem 'pg'
 
@@ -18,7 +18,7 @@ gem 'whenever', require: false
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem "therubyracer"
-gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+# gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 
 gem 'devise'
 
