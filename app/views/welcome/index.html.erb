@@ -1,0 +1,96 @@
+<% if !user_signed_in? %>
+  <div class="row">
+    <div class="span12 text-center">
+      <h2>Your Values, Your Actions</h2>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.email_field :email, placeholder:"Email" %>
+        <br />
+        <%= f.password_field :password, placeholder: "Password" %>
+        <div>
+          <%= f.submit "Discover Your Values and Start Acting", class:"text-center btn btn-large btn-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+ <hr>  
+<% end %>
+
+<div class="row">
+  <div class="span8 text-center">
+    <h1>Actions</h1>
+    <hr>
+  <% if user_signed_in? %>
+    <h3 class="text-left">Yours</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>#Causes</th>
+          <th></th>
+        </tr>
+      </thead>
+      <%= render partial: 'posts/table', collection: @my_posts, as: :post %>  
+    </table>
+  <% end %>
+    <h3 class="text-left">Nearby</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>#Causes</th>
+          <th></th>
+        </tr>
+      </thead>
+      <%= render partial: 'posts/table', collection: @near_by_actions, as: :post %>
+      </table>
+
+    <h3 class="text-left">Trending</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>#Causes</th>
+          <th></th>
+        </tr>
+      </thead>
+      <%= render partial: 'posts/table', collection: @trending_actions, as: :post %>  
+    </table>
+  </div>
+
+  <div class="span3 pull-right well">
+    <strong>What is G4B?</strong>
+    <div>
+      We believe that people want to do good but don't know what they can do today and with whom and what impact they are having. G4B is an information and action platform for finding, conecting, and acting on the good that can be done today.
+      <br />
+      <br />
+      <a href="https://twitter.com/share" class="twitter-share-button" data-hashtags='G4B'>Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+
+  </div>
+  <div class="span3 pull-right">
+    <h3>Active #Causes</h3>
+    <hr>
+    <% if user_signed_in? %>
+      <div class="lead">yours</div>
+      <% @my_tags.each do |t| %>
+        <%= link_to tag_path(t.name) do %>
+          <span class="label">#<%= t.name %></span>
+        <% end %>
+      <% end %>
+    <% end %>
+    <div class="lead">nearby</div>
+    <% @tags_near_you.each do |t| %>
+      <span class="label">#<%= t.name %></span>
+    <% end %>
+    <div class="lead">trending</div>
+    <% @trending_tags.each do |t| %>
+      <span class="label">#<%= t.name %></span>
+    <% end %>    
+  </div> 
+
+</div>

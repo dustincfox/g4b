@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="span8 text-center">
+    <h1>Actions</h1>
+    <hr>
+    
+    <h3 class="text-left"><%= @search_query %></h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>#Causes</th>
+          <th></th>
+        </tr>
+      </thead>
+      <%= render partial: 'posts/table', collection: @posts, as: :post %>  
+    </table>
+  </div>
+
+  <div class="span3 offset1">
+    <h3>#Causes</h3>
+    <hr>
+    <div class="lead">Causes from results</div>
+    <% @tags_from_results.each do |t| %>
+      <%= link_to tag_path(t.name) do %>
+        <span class="label">#<%= t.name %></span>
+      <% end %>
+    <% end %>
+    <div class="lead">nearby</div>
+    <% @tags_near_you.each do |t| %>
+      <%= link_to tag_path(t.name) do %>
+        <span class="label">#<%= t.name %></span>
+      <% end %>
+    <% end %>
+    <div class="lead">trending</div>
+    <% @trending_tags.each do |t| %>
+      <%= link_to tag_path(t.name) do %>
+        <span class="label">#<%= t.name %></span>
+      <% end %>
+    <% end %>    
+  </div>
+</div>

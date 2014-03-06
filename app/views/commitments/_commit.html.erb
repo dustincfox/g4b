@@ -1,0 +1,4 @@
+<%= form_for(current_user.commitments.build(commitment_id: post.id)) do |f| %>
+  <div><%= f.hidden_field :commitment_id %></div>
+  <%= f.submit "Join", class: "btn btn-primary" %>
+<% end %>

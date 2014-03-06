@@ -1,0 +1,56 @@
+LOG:  database system was shut down at 2014-02-18 19:36:08 CST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2014-02-19 08:08:08 CST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  database system was interrupted; last known up at 2014-02-19 08:21:08 CST
+LOG:  database system was not properly shut down; automatic recovery in progress
+LOG:  record with zero length at 0/17B2F78
+LOG:  redo is not required
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was interrupted; last known up at 2014-02-21 15:32:24 CST
+LOG:  database system was not properly shut down; automatic recovery in progress
+LOG:  record with zero length at 0/17FF4B8
+LOG:  redo is not required
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  role "g4b" does not exist
+FATAL:  database "g4b_development" does not exist
+FATAL:  database "g4b_development" does not exist
+LOG:  database system was interrupted; last known up at 2014-02-21 16:58:24 CST
+LOG:  database system was not properly shut down; automatic recovery in progress
+LOG:  record with zero length at 0/18003C0
+LOG:  redo is not required
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2014-02-23 09:11:03 CST
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2014-02-23 09:19:21 CST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2014-02-23 09:21:35 CST
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections

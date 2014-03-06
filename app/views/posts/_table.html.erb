@@ -1,0 +1,7 @@
+<tr>
+  <td><%= post.check_ins.count %></td>
+  <td><%= link_to post_path(post) do %> <strong><%= post.title %></strong></td>
+  <td class="muted"><%= post.desc %></td>
+  <% end %>
+  <td><%= raw post.tags.map(&:name).map { |t| link_to "#" + t, tag_path(t), class:"label" }.join(' ') %></td>
+</tr>

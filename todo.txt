@@ -1,0 +1,79 @@
+count impressions with impressionist (add cache counter - impressions_count)
+  is_impressionable :counter_cache => { :column_name => :my_column, :unique => true }
+
+add profile screen after signup, username, name, location
+
+  Actions
+    # views
+    # commitments
+    # taken
+
+  Tags
+    # actions
+
+  People
+    # votes up on comments and checkins
+
+    # actions created
+    # tags created
+    # actions joined
+    # actions taken
+
+  if take action, also join if not already joined
+  sort trending actions by # of checkins
+
+profile page
+  reputation
+    unlocked permissions
+    how to get points
+  activity (public activity)
+    actions created
+    commitments
+    taken
+    comments created
+
+setup nearby actions - require location
+
+setup email notifications
+	welcome
+	s/o has joined your action
+  action comments digest (over 10 votes?)
+  someone commented on your comment
+  someone voted up your comment
+  unlocked new permission
+
+----------------
+
+setup referral to gain 20 points, 20 points to share on fb, and 20 points to tweet, 100 points to create an action
+
+Permissions
+  20 karma create actions
+  100 create your own tag
+  200 allow vote down on action
+  1000 allow crowdfunding through G4B
+
+Setup comments on check-ins
+Setup comments on comments
+
+setup flagging comments, checkins, and actions for moderation
+
+setup twitter login
+setup facebook login
+
+---------------------------------------
+
+DONE Setup tags
+
+DONE setup users taking actions - rails tutorial 
+
+DONE Auto backup the db every day, week, month
+
+DONE Search for actions
+  DONE weight by title and weight by tag
+  DONE setup whenever gem to set cron job to reindex: rake ts:reindex
+
+DONE setup checking in on actions - rails tutorial
+
+DONE setup lazy high-charts graphics for #tag activity and activity checkins
+
+DONE setup thumbs_up on checkins and comments
